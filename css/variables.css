@@ -1,0 +1,72 @@
+:root {
+  /* Colors */
+  --color-primary: #a91b47;
+  --color-primary-soft: rgba(169, 27, 71, 0.1);
+  --color-gold: #d4af37;
+  --color-gold-soft: rgba(212, 175, 55, 0.2);
+  --color-bg: #fdfbf8;
+  --color-text: #2c2c2c;
+  --color-text-light: #666666;
+  --color-white: #ffffff;
+  --color-shadow: rgba(0, 0, 0, 0.08);
+
+  /* Typography */
+  --font-serif: "Noto Sans JP", sans-serif;
+  --font-sans: "Noto Sans JP", sans-serif;
+
+  /* Spacing */
+  --space-unit: 10px;
+  --space-sm: calc(var(--space-unit) * 2);    /* 20px */
+  --space-md: calc(var(--space-unit) * 4);    /* 40px */
+  --space-lg: calc(var(--space-unit) * 10);   /* 100px */
+  --space-xl: calc(var(--space-unit) * 15);   /* 150px */
+
+  /* Specific Spacing for Sections */
+  --section-v-padding: 100px; /* Balanced Gap between sections */
+  --title-v-margin: 50px;     /* Balanced Gap between title and content */
+
+  /* UI Elements */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 40px;
+  --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  --max-width: 1200px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&family=Inter:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

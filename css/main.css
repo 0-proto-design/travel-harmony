@@ -1,0 +1,52 @@
+@import url('variables.css');
+@import url('layout.css');
+@import url('components.css');
+@import url('sections.css');
+
+/* Global Styles */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+}
+
+.u-section {
+  padding-top: var(--section-v-padding);
+  padding-bottom: var(--section-v-padding);
+}
+
+.u-mb-sm { margin-bottom: var(--space-sm); }
+.u-mb-md { margin-bottom: var(--space-md); }
+.u-mb-lg { margin-bottom: var(--space-lg); }
+
+.section-title {
+  text-align: center;
+  position: relative;
+  font-size: 2.5rem;
+  margin-bottom: var(--title-v-margin);
+  color: var(--color-primary);
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: var(--color-gold);
+  border-radius: 2px;
+}
+
+.section-title .subtitle {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-text-light);
+  margin-bottom: 8px;
+}

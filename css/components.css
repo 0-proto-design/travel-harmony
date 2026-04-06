@@ -1,0 +1,567 @@
+/* Buttons */
+.c-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: var(--radius-xl);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+  text-align: center;
+  gap: 8px;
+}
+
+.c-btn--primary {
+  background-color: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(169, 27, 71, 0.3);
+}
+
+.c-btn--primary:hover {
+  background-color: #8a1539;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(169, 27, 71, 0.4);
+}
+
+.c-btn--gold {
+  background-color: var(--color-gold);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.c-btn--gold:hover {
+  background-color: #bfa032;
+  transform: translateY(-2px);
+}
+
+.c-btn--outline {
+  background-color: transparent;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.c-btn--outline:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(169, 27, 71, 0.2);
+}
+
+.c-btn--sm {
+  padding: 8px 16px;
+  font-size: 0.8rem;
+}
+
+/* Cards */
+.c-card {
+  background-color: #fff;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 10px 30px var(--color-shadow);
+  transition: var(--transition);
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+.c-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+.c-card__img-wrapper {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.c-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.c-card:hover .c-card__img {
+  transform: scale(1.1);
+}
+
+.c-card__content {
+  padding: var(--space-sm);
+  text-align: left; /* Alignment changed to left as requested */
+}
+
+.c-card__tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.c-card__title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+  line-height: 1.4;
+  transition: var(--transition);
+}
+
+
+
+.c-card__summary {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+
+
+/* Link with Circular Arrow */
+.c-link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.c-link-arrow__circle {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  font-size: 0.7rem;
+}
+
+/* Hover effects triggered by card or parent item */
+
+
+.c-card:hover .c-link-arrow__circle,
+.beginner__item:hover .c-link-arrow__circle,
+.c-link-arrow:hover .c-link-arrow__circle {
+  background-color: var(--color-primary);
+  color: #fff;
+  transform: scale(1.15); /* Scale up as requested */
+}
+
+.c-card:hover .c-link-arrow i,
+.beginner__item:hover .c-link-arrow i,
+.c-link-arrow:hover i {
+  animation: arrowMove 0.6s infinite alternate;
+}
+
+/* Tabs */
+.c-tabs {
+  position: relative;
+}
+
+.c-tabs__nav {
+  display: flex;
+  justify-content: center;
+  gap: 0; /* Tabs touch each other for the sliding bg effect */
+  margin-bottom: var(--space-md);
+  background-color: var(--color-gold-soft);
+  padding: 6px;
+  border-radius: var(--radius-xl);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.c-tabs__btn {
+  padding: 12px 32px;
+  border-radius: var(--radius-xl);
+  background-color: transparent;
+  border: none;
+  color: var(--color-text-light);
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+  position: relative;
+  z-index: 2;
+}
+
+.c-tabs__btn.is-active {
+  color: #fff;
+}
+
+/* Sliding background for tabs */
+.c-tabs__nav::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: var(--tab-x, 6px);
+  width: var(--tab-width, 100px);
+  height: calc(100% - 12px);
+  background-color: var(--color-primary);
+  border-radius: var(--radius-xl);
+  transition: var(--transition);
+  z-index: 1;
+}
+
+/* Logic for sliding position will be handled in JS, but here's a CSS fallback or helper */
+/* For 3 tabs, approx 33% width each if they were equal, but JS is better for dynamic widths */
+
+.c-tabs__content {
+  display: none;
+}
+
+.c-tabs__content.is-active {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Search Widget */
+.c-search-widget {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--color-gold-soft);
+  width: 100%;
+  max-width: 460px;
+}
+
+.c-search-widget__title {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: var(--color-primary);
+  text-align: center;
+}
+
+.c-search-widget__field {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 2-column row */
+.c-search-widget__row-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Stacked label for 2-column fields */
+.c-search-widget__field--stacked {
+  flex-direction: column;
+  align-items: stretch; /* Ensure children fill the width */
+  gap: 6px;
+}
+
+.c-search-widget__field--stacked .c-search-widget__label {
+  width: auto;
+  margin-bottom: 0;
+}
+
+.c-search-widget__label {
+  width: 110px;
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-text-light);
+  line-height: 1.2;
+}
+
+.c-search-widget__select,
+.c-custom-select,
+.c-search-widget__input {
+  width: 100%;
+  flex: 1;
+  min-width: 0; /* Prevent horizontal expansion from content */
+}
+
+.c-search-widget__select {
+  width: 100%;
+  height: 44px;
+  padding: 0 32px 0 12px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: var(--radius-sm);
+  background-color: #f9f9f9;
+  font-family: inherit;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23666' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  font-size: 0.9rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.c-search-widget__input {
+  width: 100%;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: var(--radius-sm);
+  background-color: #f9f9f9;
+  font-family: inherit;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.c-search-widget__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background-color: #fff;
+}
+
+.c-search-widget__checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  padding: 4px 0;
+}
+
+.c-search-widget__checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.c-search-widget__checkbox-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-primary);
+}
+
+.c-search-widget__month-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 4px 0;
+}
+
+.c-search-widget__month-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.c-search-widget__month-item input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  accent-color: var(--color-primary);
+}
+
+.c-search-widget__row-half {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Custom Multi-Select Dropdown */
+.c-custom-select {
+  position: relative;
+  width: 100%;
+}
+
+.c-custom-select__trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: var(--radius-sm);
+  background-color: #f9f9f9;
+  font-size: 0.9rem;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.c-custom-select__trigger:hover {
+  background-color: #f0f0f0;
+}
+
+.c-custom-select.is-open .c-custom-select__trigger {
+  background-color: #fff;
+  border-color: var(--color-primary);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c-custom-select__trigger i {
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+  opacity: 0.6;
+}
+
+.c-custom-select.is-open .c-custom-select__trigger i {
+  transform: rotate(180deg);
+}
+
+.c-custom-select__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 10px;
+}
+
+.c-custom-select__label.is-placeholder {
+  color: #999;
+}
+
+.c-custom-select__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid var(--color-primary);
+  border-top: none;
+  border-bottom-left-radius: var(--radius-sm);
+  border-bottom-right-radius: var(--radius-sm);
+  z-index: 100;
+  max-height: 250px;
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-5px);
+  transition: all 0.2s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.c-custom-select.is-open .c-custom-select__dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.c-custom-select__dropdown-item {
+  padding: 10px 12px;
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border-bottom: 1px solid rgba(0,0,0,0.03);
+}
+
+.c-custom-select__dropdown-item:hover {
+  background-color: var(--color-bg);
+}
+
+.c-custom-select__dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.c-custom-select__dropdown-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-primary);
+}
+
+/* Video Frame */
+.c-video-frame {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  border: 6px solid #fff;
+}
+
+.c-video-frame::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%; /* 16:9 */
+}
+
+.c-video-frame iframe {
+  --transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); /* Slower transition */
+  --max-width: 1200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Scroll Top Button */
+.c-scroll-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: #fff;
+  border: 1px solid var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.c-scroll-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.c-scroll-top:hover {
+  background-color: #fff;
+  color: var(--color-primary);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.c-scroll-top i {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .c-scroll-top {
+    bottom: 30px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+  }
+}
