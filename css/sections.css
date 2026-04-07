@@ -26,9 +26,9 @@
 
 .hero__content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 520px 1fr;
   align-items: center;
-  gap: 60px;
+  gap: 30px;
 }
 
 .hero_search-container {
@@ -50,9 +50,47 @@
 }
 
 .hero__title {
+  font-family: var(--font-serif);
   font-size: 3.5rem;
-  line-height: 1.2;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
   margin-bottom: 30px;
+  white-space: nowrap; /* Prevent intra-line wrapping */
+}
+
+@media (max-width: 1200px) {
+  .hero__title {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero__content {
+    grid-template-columns: 1fr 1.2fr; /* Give slightly more to text while allowing widget to shrink if needed */
+    gap: 30px;
+  }
+  .hero__title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero__content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+  .hero_search-container {
+    order: 2;
+  }
+  .hero__text {
+    transform: translateY(0);
+    order: 1;
+  }
+  .hero__title {
+    font-size: 2.2rem;
+    white-space: normal; /* Allow wrap on mobile */
+  }
 }
 
 /* News */
@@ -155,6 +193,9 @@
 }
 
 /* Tours */
+.tours {
+  background-color: var(--color-white);
+}
 
 /* Videos */
 

@@ -307,7 +307,7 @@
 }
 
 .footer__contact-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: 1.4rem;
   margin-bottom: 30px;
   color: var(--color-primary);

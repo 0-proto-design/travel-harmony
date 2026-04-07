@@ -5,14 +5,15 @@
   --color-gold: #d4af37;
   --color-gold-soft: rgba(212, 175, 55, 0.2);
   --color-bg: #fdfbf8;
+  --color-bg-alt: #f2eee5;
+  --color-white: #ffffff;
   --color-text: #2c2c2c;
   --color-text-light: #666666;
-  --color-white: #ffffff;
   --color-shadow: rgba(0, 0, 0, 0.08);
 
   /* Typography */
-  --font-serif: "Noto Sans JP", sans-serif;
-  --font-sans: "Noto Sans JP", sans-serif;
+  --font-serif: "Shippori Mincho", serif;
+  --font-sans: "Inter", "Noto Sans JP", sans-serif;
 
   /* Spacing */
   --space-unit: 10px;
@@ -34,12 +35,16 @@
   --max-width: 1200px;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&family=Inter:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Inter:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;700&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
 }
 
 body {
@@ -61,7 +66,7 @@ ul {
 }
 
 h1, h2, h3, h4 {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-weight: 700;
 }
 
