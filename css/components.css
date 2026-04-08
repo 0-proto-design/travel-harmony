@@ -742,7 +742,7 @@
   line-height: 1.35;
   transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   padding: 10px;
-  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+  box-shadow: -8px 0 30px rgba(0, 0, 0, 0.15);
   border-radius: 12px 0 0 12px;
 }
 
@@ -759,20 +759,9 @@
   background-color: #c42055;
 }
 
-.c-floating-btn--contact {
-  background-color: #fff;
-  color: var(--color-primary);
-  border: 2px solid var(--color-primary);
-  border-right: none;
-}
-
-.c-floating-btn--contact:hover {
-  background-color: var(--color-primary);
-  color: #fff;
-}
-
 .c-floating-btn:hover {
   width: 115px;
+  box-shadow: -10px 0 40px rgba(169, 27, 71, 0.25);
 }
 
 .c-floating-btn__icon {
@@ -783,24 +772,65 @@
 @media (max-width: 768px) {
   .c-floating-group {
     top: auto;
-    bottom: 20px;
+    bottom: 120px; /* Offset from back-to-top button */
     right: 15px;
     transform: none;
     gap: 10px;
   }
   .c-floating-btn {
-    width: 76px;
-    height: 86px;
+    width: 64px;
+    height: 74px;
     font-size: 0.65rem;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  }
-  .c-floating-btn:hover {
-    width: 64px;
-    transform: none;
+    box-shadow: 0 10px 30px rgba(169, 27, 71, 0.35);
   }
   .c-floating-btn__icon {
     font-size: 1.3rem;
+  }
+}
+
+/* Back to Top Button */
+.c-back-to-top {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 54px;
+  height: 54px;
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 1000;
+  transition: var(--transition);
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 10px 30px var(--color-shadow);
+}
+
+.c-back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.c-back-to-top:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+  transform: translateY(-5px);
+  border-color: var(--color-primary);
+  box-shadow: 0 15px 40px rgba(169, 27, 71, 0.2);
+}
+
+@media (max-width: 768px) {
+  .c-back-to-top {
+    right: 20px;
+    bottom: 20px;
+    width: 48px;
+    height: 48px;
   }
 }
 
