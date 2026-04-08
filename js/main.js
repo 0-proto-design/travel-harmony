@@ -94,6 +94,50 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Hamburger Menu Toggle
+  const hamburger = document.querySelector('.js-hamburger');
+  const headerMenu = document.querySelector('.js-header-menu');
+
+  if (hamburger && headerMenu) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('is-open');
+      headerMenu.classList.toggle('is-open', isOpen);
+      hamburger.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+    });
+  }
+
+  // Mobile Submenu Accordion
+  const navItems = document.querySelectorAll('.header__nav-item');
+  navItems.forEach(item => {
+    const link = item.querySelector('.header__nav-link');
+    const submenu = item.querySelector('.header__submenu');
+
+    if (link && submenu) {
+      link.addEventListener('click', (e) => {
+        // Only intercept on mobile
+        if (window.innerWidth > 768) return;
+        e.preventDefault();
+        const isOpen = item.classList.toggle('is-submenu-open');
+        // Close other open submenus
+        navItems.forEach(other => {
+          if (other !== item) other.classList.remove('is-submenu-open');
+        });
+      });
+    }
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (hamburger && headerMenu) {
+      if (!header.contains(e.target)) {
+        hamburger.classList.remove('is-open');
+        headerMenu.classList.remove('is-open');
+        hamburger.setAttribute('aria-label', 'メニューを開く');
+      }
+    }
+  });
+
+
   // Reveal on scroll
   const revealElements = document.querySelectorAll('.section-title, .c-card, .beginner__item, .news__item');
   const revealObserver = new IntersectionObserver((entries) => {

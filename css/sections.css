@@ -1,6 +1,7 @@
 /* Hero */
 .hero {
   height: 100vh;
+  min-height: 600px;
   padding-top: 120px; /* Offset for fixed header */
   position: relative;
   display: flex;
@@ -75,21 +76,33 @@
 }
 
 @media (max-width: 768px) {
+  .hero {
+    height: auto;
+    min-height: 100svh;
+    padding-top: 80px;
+    padding-bottom: 40px;
+    align-items: flex-start;
+  }
   .hero__content {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 40px;
+    gap: 32px;
+    padding-top: 20px;
   }
   .hero_search-container {
     order: 2;
+    width: 100%;
+    min-width: 0; /* グリッドアイテムのデフォルトmin-width:autoを無効化 */
+    overflow: hidden;
   }
   .hero__text {
     transform: translateY(0);
     order: 1;
   }
   .hero__title {
-    font-size: 2.2rem;
-    white-space: normal; /* Allow wrap on mobile */
+    font-size: 2rem;
+    white-space: normal;
+    letter-spacing: 0.05em;
   }
 }
 
@@ -114,11 +127,25 @@
 
 .news__item {
   display: flex;
-  gap: 32px;
-  padding: 24px 40px;
+  gap: 16px;
+  padding: 20px 24px;
   border-bottom: 1px solid rgba(0,0,0,0.05);
   transition: var(--transition);
-  border-radius: var(--radius-md); /* Rounded corners for hover effect */
+  border-radius: var(--radius-md);
+}
+
+@media (max-width: 768px) {
+  .news__item {
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px 16px;
+  }
+  .news__date {
+    min-width: auto;
+  }
+  .news__list {
+    border-radius: var(--radius-md);
+  }
 }
 
 .news__item:last-child {
@@ -158,6 +185,13 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-md);
+}
+
+@media (max-width: 768px) {
+  .beginner__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
 }
 
 .beginner__item {
@@ -203,6 +237,19 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+}
+
+@media (max-width: 1024px) {
+  .videos__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .videos__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
 }
 
 .videos__item-title {

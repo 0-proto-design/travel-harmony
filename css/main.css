@@ -54,3 +54,27 @@
   color: var(--color-text-light);
   margin-bottom: 8px;
 }
+
+/* ============================
+   Mobile Responsive: Global
+   ============================ */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .u-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+  }
+
+  .section-title::after {
+    bottom: -12px;
+  }
+}

@@ -336,7 +336,7 @@
   border: 1px solid var(--color-gold-soft);
   width: 100%;
   max-width: 520px;
-  min-width: 0; /* Prevent content from pushing width */
+  min-width: 0;
 }
 
 /* Override when inside modal */
@@ -387,11 +387,20 @@
   text-align: center;
 }
 
+@media (max-width: 768px) {
+  .c-search-widget__title {
+    text-align: center;
+    font-size: 1.25rem;
+    margin-bottom: 24px;
+  }
+}
+
 .c-search-widget__field {
   margin-bottom: 12px;
   display: flex;
   align-items: center;
   gap: 12px;
+  min-width: 0;
 }
 
 /* 2-column row */
@@ -399,6 +408,12 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .c-search-widget__row-2col {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Stacked label for 2-column fields */
@@ -420,6 +435,71 @@
   font-weight: 700;
   color: var(--color-text-light);
   line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .c-search-widget {
+    padding: 25px 15px;
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-gold-soft);
+  }
+  .c-search-widget__field {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 16px;
+    width: 100%;
+  }
+  .c-search-widget__label {
+    width: 100%;
+    margin-bottom: 0;
+    font-size: 0.85rem;
+    text-align: left;
+    padding-left: 2px;
+  }
+  /* モバイルで flex:1 をリセットし、幅を親に合わせる */
+  .c-search-widget__select,
+  .c-custom-select,
+  .c-search-widget__input {
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .c-search-widget__input {
+    height: 44px;
+  }
+  .c-custom-select__trigger {
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .c-search-widget__actions {
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+    width: 100%;
+    align-items: flex-start;
+  }
+  .c-search-widget__actions .c-btn {
+    width: 100%;
+    height: 44px;
+  }
+  .c-search-widget__actions .js-search-clear {
+    width: auto;
+    height: auto;
+    padding: 8px 0;
+    border: none;
+    background: none;
+    color: var(--color-text-light);
+    text-decoration: none;
+    order: 2;
+    box-shadow: none;
+    font-weight: 500;
+    text-align: left;
+  }
 }
 
 .c-search-widget__select,
@@ -520,6 +600,7 @@
 .c-custom-select {
   position: relative;
   width: 100%;
+  min-width: 0;
 }
 
 .c-custom-select__trigger {
@@ -536,8 +617,10 @@
   color: var(--color-text);
   cursor: pointer;
   transition: var(--transition);
-  min-width: 0; /* Ensure it stays within parent width */
+  min-width: 0;
   overflow: hidden;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .c-custom-select__trigger:hover {
@@ -587,6 +670,8 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  max-width: 100%; /* 横幅の突き抜けを防止 */
+  overflow: hidden;
 }
 
 .c-custom-select__tag-remove {
@@ -681,6 +766,12 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   padding: 0 6px;
+}
+
+@media (max-width: 768px) {
+  .c-custom-select__dropdown-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .c-custom-select__dropdown-grid .c-custom-select__dropdown-item {
