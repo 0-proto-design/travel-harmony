@@ -55,6 +55,18 @@
   margin-bottom: 8px;
 }
 
+/* Utilities */
+.u-hide-pc { display: none !important; }
+@media (min-width: 769px) {
+  .u-hide-pc { display: none !important; }
+  .u-show-sp { display: none !important; }
+}
+@media (max-width: 768px) {
+  .u-hide-sp { display: none !important; }
+  .u-show-sp { display: block !important; }
+  br.u-show-sp { display: inline !important; }
+}
+
 /* ============================
    Mobile Responsive: Global
    ============================ */
@@ -64,9 +76,19 @@
     padding-right: 16px;
   }
 
+  body {
+    padding-bottom: 56px; /* Reduced bar height */
+  }
+
   .u-section {
     padding-top: 60px;
     padding-bottom: 60px;
+  }
+
+  /* ヒーローセクションのコンテナはパディングなし（検索ウィジェットを全幅表示するため） */
+  .hero .container {
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .section-title {

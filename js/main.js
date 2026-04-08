@@ -97,17 +97,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // Hamburger Menu Toggle
   const hamburger = document.querySelector('.js-hamburger');
   const headerMenu = document.querySelector('.js-header-menu');
+  const navItems = document.querySelectorAll('.header__nav-item');
 
   if (hamburger && headerMenu) {
     hamburger.addEventListener('click', () => {
       const isOpen = hamburger.classList.toggle('is-open');
       headerMenu.classList.toggle('is-open', isOpen);
       hamburger.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+      
+      // Close all submenus when menu is closed
+      if (!isOpen) {
+        navItems.forEach(item => item.classList.remove('is-submenu-open'));
+      }
     });
   }
 
   // Mobile Submenu Accordion
-  const navItems = document.querySelectorAll('.header__nav-item');
   navItems.forEach(item => {
     const link = item.querySelector('.header__nav-link');
     const submenu = item.querySelector('.header__submenu');
@@ -116,23 +121,36 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', (e) => {
         // Only intercept on mobile
         if (window.innerWidth > 768) return;
+        
         e.preventDefault();
-        const isOpen = item.classList.toggle('is-submenu-open');
-        // Close other open submenus
+        e.stopPropagation(); // Prevent being caught by the outer click listener
+
+        const isOpen = item.classList.contains('is-submenu-open');
+        
+        // Close all other submenus
         navItems.forEach(other => {
           if (other !== item) other.classList.remove('is-submenu-open');
         });
+
+        // Toggle the clicked one
+        if (isOpen) {
+          item.classList.remove('is-submenu-open');
+        } else {
+          item.classList.add('is-submenu-open');
+        }
       });
     }
   });
 
   // Close mobile menu when clicking outside
   document.addEventListener('click', (e) => {
-    if (hamburger && headerMenu) {
+    if (hamburger && headerMenu && headerMenu.classList.contains('is-open')) {
       if (!header.contains(e.target)) {
         hamburger.classList.remove('is-open');
         headerMenu.classList.remove('is-open');
         hamburger.setAttribute('aria-label', 'メニューを開く');
+        // Close all submenus as well
+        navItems.forEach(item => item.classList.remove('is-submenu-open'));
       }
     }
   });
