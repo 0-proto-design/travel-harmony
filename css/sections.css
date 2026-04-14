@@ -232,6 +232,10 @@
   gap: var(--space-md);
 }
 
+.beginner__grid--4col {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 @media (max-width: 768px) {
   .beginner__grid {
     grid-template-columns: 1fr;
