@@ -11,6 +11,13 @@
   padding-right: var(--space-md);
 }
 
+.container--wide {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+}
+
 .u-section {
   padding-top: var(--section-v-padding);
   padding-bottom: var(--section-v-padding);
@@ -74,6 +81,11 @@
   .container {
     padding-left: 16px;
     padding-right: 16px;
+  }
+
+  .container--wide {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   body {

@@ -64,7 +64,7 @@
 
 .header__hours {
   color: var(--color-text-light);
-  font-size: 0.85rem; /* Increased as requested */
+  font-size: 0.95rem; /* Increased for better readability */
   display: flex;
   align-items: center;
   gap: 6px;
@@ -276,7 +276,7 @@
 }
 
 .footer__info {
-  font-size: 0.9rem;
+  font-size: 1rem; /* Increased for better readability */
   line-height: 1.8;
   color: var(--color-text-light);
   margin-bottom: 30px;
@@ -317,7 +317,7 @@
 }
 
 .footer__hours-small {
-  font-size: 0.85rem;
+  font-size: 0.95rem; /* Increased for better readability */
   color: var(--color-text-light);
   display: flex;
   align-items: center;
@@ -450,19 +450,50 @@
     display: none;
   }
 
-  /* Shrink gap in top row */
+  /* Layout top row for mobile: Menu | Logo | CTA */
   .header__row-top-inner {
-    gap: 12px;
+    gap: 0;
+    justify-content: space-between;
+    position: relative;
   }
 
-  /* Compact contact area */
+  .header__brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Hide normal contact on mobile */
   .header__contact {
-    gap: 12px;
+    display: none;
   }
 
-  .header__hours,
-  .header__phone {
-    display: none;
+  .header__mobile-cta {
+    display: flex;
+    align-items: center;
+  }
+
+  .header__mobile-cta-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6px 10px;
+    background-color: transparent;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: none;
+    transition: var(--transition);
+    min-width: 60px;
+  }
+  
+  .header__mobile-cta-btn:active {
+    background-color: var(--color-primary-soft);
+    transform: scale(0.95);
   }
 
   /* Mobile nav: hidden by default, revealed on open */
