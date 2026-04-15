@@ -238,8 +238,16 @@
 
 @media (max-width: 768px) {
   .beginner__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-sm);
+  }
+  .beginner__item {
+    padding: 24px 10px;
+  }
+  .beginner__item h3 {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    white-space: nowrap;
   }
 }
 
@@ -297,7 +305,7 @@
 
 @media (max-width: 768px) {
   .ships__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
 }

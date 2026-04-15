@@ -463,6 +463,10 @@
     transform: translateX(-50%);
   }
 
+  .header__logo img {
+    height: 32px;
+  }
+
   /* Hide normal contact on mobile */
   .header__contact {
     display: none;
@@ -489,6 +493,7 @@
     text-decoration: none;
     transition: var(--transition);
     min-width: 60px;
+    white-space: nowrap;
   }
   
   .header__mobile-cta-btn:active {
