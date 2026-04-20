@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>トラベルハーモニー | 海外クルーズの老舗・添乗員同行ツアー</title>
+    <meta name="description" content="お客様と共に32年。海外クルーズの老舗トラベルハーモニー。最高級の客船で行く添乗員同行ツアーやオーダーメイドクルーズをご提案します。">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Font Awesome for icons (social, etc) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header__row-top">
+            <div class="container header__row-top-inner">
+                <!-- スマホ用ハンバーガー（左） -->
+                <button type="button" class="c-hamburger js-hamburger" aria-label="メニューを開く">
+                    <span class="c-hamburger__line"></span>
+                    <span class="c-hamburger__line"></span>
+                    <span class="c-hamburger__line"></span>
+                </button>
+                <div class="header__brand">
+                    <a href="/" class="header__logo">
+                        <img src="img/logo.png" alt="Travel Harmony">
+                    </a>
+                    <div class="header__intro">お客様と共に32年 海外クルーズの老舗</div>
+                </div>
+                <div class="header__contact">
+                    <span class="header__phone"><i class="fa-solid fa-phone"></i> 03-6260-7444</span>
+                    <span class="header__hours"><i class="fa-regular fa-clock"></i> 平日 10:00～18:00</span>
+                </div>
+                <!-- スマホ用メルマガ（右） -->
+                <div class="header__mobile-cta u-show-sp">
+                    <a href="#" class="header__mobile-cta-btn">メルマガ登録</a>
+                </div>
+            </div>
+        </div>
+        <div class="header__row-bottom js-header-menu">
+            <div class="container header__row-bottom-inner">
